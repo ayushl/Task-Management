@@ -1,38 +1,265 @@
+body {
+  background-color: #869da3; /* Use a shade of green like LimeGreen */
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  color: whitesmoke;
+  font-weight: 300;
+}
+
 .App {
   text-align: center;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #005643;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover {
+  background-color: #012920;
+  transform: scale(1.05); /* Scale button size up */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+
+
+/* Search Bar Styling */
+.search-bar {
+  padding: 10px;
+}
+
+.tools {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  height: 35px;
+  gap: 30px;
+}
+
+.filters {
+  gap: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Form Styling */
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.right {
+  float: right;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-size: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* Task List Styling */
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.task-card {
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: grab;
+
+  h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    text-transform: capitalize;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  .pendingTask {
+    color: #cc584f;
+    font-weight: bold;
+  }
+
+  .completedTask {
+    color: #94c523;
+    font-weight: bold;
+  }
+  .inProgressTask {
+    color: #599BAE;
+    font-weight: bold;
+  }
+}
+
+.task-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-card:active {
+  cursor: grabbing;
+}
+
+.task-card-actions button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.task-card:hover {
+  transform: scale(1.05); /* Scale card size up */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for a 'pop-out' effect */
+}
+
+/* Tablet View (768px and above) */
+@media (min-width: 768px) {
+  .controls {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .task-card {
+    max-width: 350px;
+  }
+}
+
+/* Desktop View (1024px and above) */
+@media (min-width: 1024px) {
+  .App {
+    padding: 40px;
+  }
+
+  .task-list {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .task-card {
+    width: calc(33.333% - 20px);
+  }
+
+  .controls {
+    gap: 30px;
+  }
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  input {
+    height: 25px;
+  }
+}
+
+.task-form h2 {
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.task-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.task-form button {
+  padding: 10px;
+  font-size: 16px;
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.add-btn {
+  background-color: #28a745;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.edit-btn {
+  background-color: #007bff;
+}
+
+.reset-btn {
+  background-color: #6c757d;
+  margin-top: 10px;
+}
+
+.task-form button:hover {
+  opacity: 0.8;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+input[type="radio"] {
+  height: 15px;
+  width: 10px;
+  margin: 4px;
+}
+
+.radioFieldset {
+  text-align: left;
+  border-radius: 4px;
 }
