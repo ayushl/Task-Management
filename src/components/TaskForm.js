@@ -6,9 +6,8 @@ function TaskForm({ addTask, taskToEdit, updateTask }) {
   const [dueDate, setDueDate] = useState(taskToEdit?.dueDate || '');
   const [status, setStatus] = useState(taskToEdit?.status || 'Pending');
 
-  // Form submit handler for adding new task
   const handleAddTask = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const newTask = {
       id: Date.now(),
       title,
@@ -17,12 +16,11 @@ function TaskForm({ addTask, taskToEdit, updateTask }) {
       status
     };
     addTask(newTask);
-    resetForm();  // Reset the form after adding a new task
+    resetForm();
   };
 
-  // Form submit handler for editing task
   const handleEditTask = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const updatedTask = {
       id: taskToEdit.id,
       title,
@@ -31,10 +29,10 @@ function TaskForm({ addTask, taskToEdit, updateTask }) {
       status
     };
     updateTask(updatedTask);
-    resetForm();  // Reset the form after editing the task
+    resetForm();
   };
 
-  // Reset form fields
+
   const resetForm = () => {
     setTitle('');
     setDescription('');
